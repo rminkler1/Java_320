@@ -1,6 +1,6 @@
 /*
 Robert Minkler
-August 24, 2024
+August 27, 2024
 CSD 320 Module 3 Assignment Rock-Paper-Scissors
 
 Write a program that is similar to the popular game titled "Rock-Paper-Scissors."
@@ -11,10 +11,46 @@ import java.util.Scanner;
 
 public class MinklerModule3 {
 
+    // Declare constants
+    static final int MAX_SELECTION = 3;
+    static final int MIN_SELECTION = 1;
+    static final int ROCK = 1;
+    static final int PAPER = 2;
+    static final int SCISSORS = 3;
+    static final String INTRO_ASCII_ART = "\n" +
+            "__________               __                           \n" +
+            "\\______   \\ ____   ____ |  | __                       \n" +
+            " |       _//  _ \\_/ ___\\|  |/ /                       \n" +
+            " |    |   (  <_> )  \\___|    <                        \n" +
+            " |____|_  /\\____/ \\___  >__|_ \\                       \n" +
+            "        \\/            \\/     \\/                       \n" +
+            "__________                                            \n" +
+            "\\______   \\_____  ______   ___________                \n" +
+            " |     ___/\\__  \\ \\____ \\_/ __ \\_  __ \\               \n" +
+            " |    |     / __ \\|  |_> >  ___/|  | \\/               \n" +
+            " |____|    (____  /   __/ \\___  >__|                  \n" +
+            "                \\/|__|        \\/                      \n" +
+            "  _________      .__                                  \n" +
+            " /   _____/ ____ |__| ______ _________________  ______\n" +
+            " \\_____  \\_/ ___\\|  |/  ___//  ___/  _ \\_  __ \\/  ___/\n" +
+            " /        \\  \\___|  |\\___ \\ \\___ (  <_> )  | \\/\\___ \\ \n" +
+            "/_______  /\\___  >__/____  >____  >____/|__|  /____  >\n" +
+            "        \\/     \\/        \\/     \\/                 \\/ \n";
+    // ASCII art generated at https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Rock%0APaper%0AScissors
+
+    static final String WINNER_ASCII = "\n" +
+            " __      __.__                           ._.\n" +
+            "/  \\    /  \\__| ____   ____   ___________| |\n" +
+            "\\   \\/\\/   /  |/    \\ /    \\_/ __ \\_  __ \\ |\n" +
+            " \\        /|  |   |  \\   |  \\  ___/|  | \\/\\|\n" +
+            "  \\__/\\  / |__|___|  /___|  /\\___  >__|   __\n" +
+            "       \\/          \\/     \\/     \\/       \\/\n";
+    // ASCII art generated at https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Winner!
+
+
     /*
-    Use a method to convert the number to a string.
-    I didn't want to repeat this over and over and over again.
-    A list would probably be simpler, but I'm looking at ch 6, so I can implement it with if else logic.
+    Use a method to convert the user's selection number into the corresponding string Rock, Paper, or Scissors.
+    There are better ways, but I'm looking at ch 6 (methods) so I can implement it with if else logic once.
     */
     public static String numberToName(int numericalSelection) {
 
@@ -22,10 +58,10 @@ public class MinklerModule3 {
         String name;
 
         // set name based on the number entered
-        if (numericalSelection == 1) {
+        if (numericalSelection == ROCK) {
             name = "Rock";
         }
-        else if (numericalSelection == 2) {
+        else if (numericalSelection == PAPER) {
             name = "Paper";
         }
         else {
@@ -40,11 +76,11 @@ public class MinklerModule3 {
         // initialize verb to set and return later
         String verb;
 
-        // set the verb based on the number entered
-        if (numericalSelection == 1) {
+        // set the verb based on the winner's number
+        if (numericalSelection == ROCK) {
             verb = "SMASHES";   // rock smashes
         }
-        else if (numericalSelection == 2) {
+        else if (numericalSelection == PAPER) {
             verb = "SMOTHERS";  // paper smothers
         }
         else {
@@ -55,39 +91,6 @@ public class MinklerModule3 {
 
     public static void main(String[] args) {
 
-        // Declare constants
-        final int MAX_SELECTION = 3;
-        final int MIN_SELECTION = 1;
-        final String ASCII_ART = "\n" +
-                "__________               __                           \n" +
-                "\\______   \\ ____   ____ |  | __                       \n" +
-                " |       _//  _ \\_/ ___\\|  |/ /                       \n" +
-                " |    |   (  <_> )  \\___|    <                        \n" +
-                " |____|_  /\\____/ \\___  >__|_ \\                       \n" +
-                "        \\/            \\/     \\/                       \n" +
-                "__________                                            \n" +
-                "\\______   \\_____  ______   ___________                \n" +
-                " |     ___/\\__  \\ \\____ \\_/ __ \\_  __ \\               \n" +
-                " |    |     / __ \\|  |_> >  ___/|  | \\/               \n" +
-                " |____|    (____  /   __/ \\___  >__|                  \n" +
-                "                \\/|__|        \\/                      \n" +
-                "  _________      .__                                  \n" +
-                " /   _____/ ____ |__| ______ _________________  ______\n" +
-                " \\_____  \\_/ ___\\|  |/  ___//  ___/  _ \\_  __ \\/  ___/\n" +
-                " /        \\  \\___|  |\\___ \\ \\___ (  <_> )  | \\/\\___ \\ \n" +
-                "/_______  /\\___  >__/____  >____  >____/|__|  /____  >\n" +
-                "        \\/     \\/        \\/     \\/                 \\/ \n";
-        // ASCII art generated at https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Rock%0APaper%0AScissors
-
-        final String WINNER_ASCII = "\n" +
-                " __      __.__                           ._.\n" +
-                "/  \\    /  \\__| ____   ____   ___________| |\n" +
-                "\\   \\/\\/   /  |/    \\ /    \\_/ __ \\_  __ \\ |\n" +
-                " \\        /|  |   |  \\   |  \\  ___/|  | \\/\\|\n" +
-                "  \\__/\\  / |__|___|  /___|  /\\___  >__|   __\n" +
-                "       \\/          \\/     \\/     \\/       \\/\n";
-        // ASCII art generated at https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Winner!
-
         // Create a new scanner obj to collect user input
         Scanner input = new Scanner(System.in);
 
@@ -95,13 +98,13 @@ public class MinklerModule3 {
         int computerSelection = (int) (MIN_SELECTION + Math.random() * MAX_SELECTION);
 
         // Display Ascii Art Intro
-        System.out.println(ASCII_ART);
+        System.out.println(INTRO_ASCII_ART);
 
         // Get user's selection of 1 Rock, 2 Paper, or 3 Scissors
         System.out.print("Enter your selection" +
-                         "\n1 Rock" +
-                         "\n2 Paper" +
-                         "\n3 Scissors" +
+                         "\n" + ROCK + " Rock" +
+                         "\n" + PAPER + " Paper" +
+                         "\n" + SCISSORS + " Scissors" +
                          "\nChoose Wisely... ");
         int userSelection = input.nextInt();
 
@@ -127,9 +130,11 @@ public class MinklerModule3 {
         if (computerSelection == userSelection){
             System.out.println("TIE! You both selected " + numberToName(computerSelection) + ".\n");
         }
+
         // Determine if the user won. This one statement catches all three winning scenarios.
         // User won if they selected one option higher than computer or user selected 1 when computer selected 3
-        else if (userSelection == computerSelection + 1 || userSelection == computerSelection - 2) {
+        else if (userSelection == computerSelection + 1 || userSelection == computerSelection - MAX_SELECTION + 1) {
+
             // Display winning message
             System.out.println("You WON! Your " + numberToName(userSelection) + " " + numberToVerb(userSelection) +
                                " the computer's " + numberToName(computerSelection) + "!");
