@@ -46,7 +46,7 @@ public class MinklerModule4 {
         // Display ASCII Art Intro
         System.out.println(ASCII_INTRO);
 
-        // Test to see if a string is a substring of the other
+        // Explain what the program does
         System.out.println("This will test two strings to see if either is a substring of the other.");
 
         // Get User Input of Two Strings
@@ -64,13 +64,13 @@ public class MinklerModule4 {
             System.out.println("Both String #1 and String #2 are identical.");
         }
 
-        // test if String 1 a substring of String 2. Output result
+        // test if String 1 is a substring of String 2. Output result
         else if (string_2.contains(string_1)) {
             System.out.println("String #1 is a substring of String #2");
             System.out.println("The string \"" + string_1 + "\" is in \"" + string_2 + "\".\n");
         }
 
-        // test if String 2 a substring of String 1. Output result
+        // test if String 2 is a substring of String 1. Output result
         else if (string_1.contains(string_2)) {
             System.out.println("String #2 is a substring of String #1");
             System.out.println("The string \"" + string_2 + "\" is in \"" + string_1 + "\".\n");
