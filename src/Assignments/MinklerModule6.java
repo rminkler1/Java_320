@@ -27,8 +27,9 @@ public class MinklerModule6 {
         // init scanner object for user input
         Scanner input = new Scanner(System.in);
 
-        // initialize rows before prompting the user.
-        int rows = 0;
+        // Initialize rows and col
+        int rows;
+        int col;
 
         // Get the number of rows for the pyramid from the user.
         do {
@@ -50,18 +51,18 @@ public class MinklerModule6 {
 
             // Iterate through each number to be printed in the current row
             // Each row length is the row number multiplied by two minus one.
-            for (int i = 0; i < row * 2 - 1; i++) {
+            for (col = 0; col < row * 2 - 1; col++) {
 
                 // left side of pyramid and center. growing
-                if (i < row) {
+                if (col < row) {
                     // the number is 2 to the power of the character's position in the row.
                     // Each number is formatted to take SPACE_COUNT spaces to align all rows.
-                    System.out.format("%" + SPACE_COUNT + "d", (int) Math.pow(2, i));
+                    System.out.format("%" + SPACE_COUNT + "d", (int) Math.pow(2, col));
                 }
                 // right side of pyramid. shrinking
                 else {
-                    System.out.format("%" + SPACE_COUNT + "d", (int) Math.pow(2, i - countDown));
-                    countDown += 2;   // subtract one to go down and subtract another to counter the increasing i
+                    System.out.format("%" + SPACE_COUNT + "d", (int) Math.pow(2, col - countDown));
+                    countDown += 2;   // subtract one to go down and subtract another to counter the increasing col
                 }
             }
 
