@@ -1,6 +1,6 @@
 /*
 Robert Minkler
-September 7, 2024
+September 11, 2024
 CSD 320 Module 6 Assignment Nested For Loops
 
 Write a program that uses nested for loops to output the following with the shown display format:
