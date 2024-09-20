@@ -1,21 +1,35 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Test {
-    public static void main(String[] arrg) {
+    public static void main(String[] args) {
+        // Initialize int
+        int num1 = 1;
+        int num2 = 2;
 
-        // Create list of Strings
-        List<String> myList = new ArrayList<>();
+        // Output values before operations
+        System.out.print("Before swap-> ");
+        System.out.println("num1: " + num1 + " num2: " + num2);
 
-        // add items to list
-        myList.add("Hello");
-        myList.add("World");
+        // call swap method with both numbers
+        swap(num1, num2);
 
-        System.out.println(myList);
+        // Output values after operations
+        System.out.print("After swap-> ");
+        System.out.println("num1: " + num1 + " num2: " + num2);
+    }
 
-        List<String> immutableList = List.copyOf(myList);
+    public static void swap(int snum1, int snum2) {
 
-        // attempt to add items to the immutable list causes an error
-        immutableList.add("I'm great!");
+        // Output values before operation
+        System.out.print("Inside method swap() before swap-> ");
+        System.out.println("num1: " + snum1 + " num2: " + snum2);
+
+        // Swap num1 and num2 using a temporary variable
+        int temp;
+        temp = snum1;
+        snum1 = snum2;
+        snum2 = temp;
+
+        // Output values after operation
+        System.out.print("Inside method swap() after swap-> ");
+        System.out.println("num1: " + snum1 + " num2: " + snum2);
     }
 }
