@@ -10,7 +10,7 @@ Write a main method that will test each of these methods two times.
 
 public class MinklerModule8 {
 
-    // Define constants
+    // Define constant
     static final double stdServiceChg = 30.00;
 
     public static void main(String[] args) {
