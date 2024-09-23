@@ -12,7 +12,6 @@ public class MinklerModule8 {
 
     // Define constants
     static final double stdServiceChg = 30.00;
-    static final String line = "____________________________________";
 
     public static void main(String[] args) {
 
@@ -49,9 +48,6 @@ public class MinklerModule8 {
         // No Parameters - Will return the standard service charge.
         // Print pricing breakdown before returning total
         printServChg();
-
-        System.out.println(line);
-
         return stdServiceChg;
     }
 
@@ -60,9 +56,6 @@ public class MinklerModule8 {
         // Print pricing breakdown before returning total
         printServChg();
         printOilChg(oilChangeChg);
-
-        System.out.println(line);
-
         return stdServiceChg + oilChangeChg;
     }
 
@@ -72,9 +65,6 @@ public class MinklerModule8 {
         printServChg();
         printOilChg(oilChangeChg);
         printTireRot(tireRotateChg);
-
-        System.out.println(line);
-
         return stdServiceChg + oilChangeChg + tireRotateChg;
     }
 
@@ -85,9 +75,6 @@ public class MinklerModule8 {
         printOilChg(oilChangeChg);
         printTireRot(tireRotateChg);
         printDisc(dolOffCoupon);
-
-        System.out.println(line);
-
         return stdServiceChg + oilChangeChg + tireRotateChg - dolOffCoupon;
     }
 
@@ -113,6 +100,7 @@ public class MinklerModule8 {
 
     public static void printTotal(double total) {
         // Formatted output Description and price
+        System.out.println("____________________________________");   // Divider line before the total
         System.out.printf("%-25s $%,8.2f%n", "Total", total);
     }
 }
