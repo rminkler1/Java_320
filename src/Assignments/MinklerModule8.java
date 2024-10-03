@@ -1,6 +1,6 @@
 /*
 Robert Minkler
-September 22, 2024
+September 23, 2024
 CSD 320 Module 8 Assignment
 
 Write four methods that use method overloading.
@@ -46,61 +46,38 @@ public class MinklerModule8 {
 
     public static double yearlyService() {
         // No Parameters - Will return the standard service charge.
-        // Print pricing breakdown before returning total
-        printServChg();
+        // Print pricing breakdown starting with the service charge.
+        System.out.printf("%-25s $%,8.2f%n", "Standard Service Charge", stdServiceChg);
         return stdServiceChg;
     }
 
     public static double yearlyService(double oilChangeChg) {
         // One Parameter - Will return the standard service charge with an added oil change fee.
-        // Print pricing breakdown before returning total
-        printServChg();
-        printOilChg(oilChangeChg);
+        // Print pricing breakdown, starting with the service charge then oil change
+        yearlyService();
+        System.out.printf("%-25s $%,8.2f%n", "Oil Change", oilChangeChg);
         return stdServiceChg + oilChangeChg;
     }
 
     public static double yearlyService(double oilChangeChg, double tireRotateChg) {
-        //  Two Parameters - returns standard service charge with an added oil change fee and a tire rotation charge.
-        // Print pricing breakdown before returning total
-        printServChg();
-        printOilChg(oilChangeChg);
-        printTireRot(tireRotateChg);
+        // Two Parameters - returns standard service charge with an added oil change fee and a tire rotation charge.
+        // Print pricing breakdown, starting with all previous items then tire rotation
+        yearlyService(oilChangeChg);
+        System.out.printf("%-25s $%,8.2f%n", "Tire Rotation", tireRotateChg);
         return stdServiceChg + oilChangeChg + tireRotateChg;
     }
 
     public static double yearlyService(double oilChangeChg, double tireRotateChg, double dolOffCoupon) {
         // Three Parameters - Returns standard service charge + oil change fee + tire rotation charge - coupon amount
-        // Print pricing breakdown before returning total
-        printServChg();
-        printOilChg(oilChangeChg);
-        printTireRot(tireRotateChg);
-        printDisc(dolOffCoupon);
+        // Print pricing breakdown, starting with all previous items then discount
+        yearlyService(oilChangeChg, tireRotateChg);
+        System.out.printf("%-25s($%,8.2f)%n", "Discount Applied", dolOffCoupon);
         return stdServiceChg + oilChangeChg + tireRotateChg - dolOffCoupon;
     }
 
-    public static void printServChg() {
-        // Formatted output Description and price
-        System.out.printf("%-25s $%,8.2f%n", "Standard Service Charge", stdServiceChg);
-    }
-
-    public static void printOilChg(double oilChangeChg) {
-        // Formatted output Description and price
-        System.out.printf("%-25s $%,8.2f%n", "Oil Change", oilChangeChg);
-    }
-
-    public static void printTireRot(double tireRotateChg) {
-        // Formatted output Description and price
-        System.out.printf("%-25s $%,8.2f%n", "Tire Rotation", tireRotateChg);
-    }
-
-    public static void printDisc(double dolOffDisc) {
-        // Formatted output Description and price
-        System.out.printf("%-25s($%,8.2f)%n", "Discount Applied", dolOffDisc);
-    }
-
     public static void printTotal(double total) {
-        // Formatted output Description and price
-        System.out.println("____________________________________");   // Divider line before the total
+        // Formatted output Line and total
+        System.out.println("____________________________________");
         System.out.printf("%-25s $%,8.2f%n", "Total", total);
     }
 }
